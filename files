@@ -1,0 +1,298 @@
+✅ Simple ReactJS Event Registration Form
+App.js
+import React, { useState } from 'react';
+function App() {
+const [name, setName] = useState('');
+const [email, setEmail] = useState('');
+const [phone, setPhone] = useState('');
+const handleSubmit = (e) => {
+e.preventDefault();
+alert(`Registered:\nName: ${name}\nEmail: ${email}\nPhone: ${phone}`);
+};
+return (
+<div>
+<h2>Event Registration Form</h2>
+<form onSubmit={handleSubmit}>
+<input
+type="text"
+placeholder="Enter your name"
+value={name}
+onChange={(e) => setName(e.target.value)}
+/><br /><br />
+<input
+type="email"
+placeholder="Enter your email"
+value={email}
+onChange={(e) => setEmail(e.target.value)}
+/><br /><br />
+<input
+type="tel"
+placeholder="Enter your phone number"
+value={phone}
+onChange={(e) => setPhone(e.target.value)}
+/><br /><br />
+
+<button type="submit">Register</button>
+</form>
+</div>
+);
+}
+export default App;
+✅ How to Run
+Create a React app:
+npx create-react-app simple-form
+cd simple-form
+Replace the content of src/App.js with the above code.
+Start the app:
+npm start
+
+Exp- 2
+# 🔁 Clone a remote GitHub repository to your local machine
+git clone <repo-url>
+cd <project-folder>
+# 📌 Check the status of files (modified, staged, untracked)
+git status
+# ➕ Stage specific files or all files for commit
+git add <filename> # Add a single file
+git add . # Add all changes in the current directory
+# 🕓 View the commit history
+git log
+
+# 🌿 List all branches or create a new one
+git branch # Show all branches
+git branch new-feature # Create a new branch called "new-feature"
+# 🔀 Switch to another branch (older way)
+git checkout main
+# ✅ Recommended way to switch branches (modern syntax)
+git switch main
+# ⬆️ Push commits to the remote GitHub repository
+git push origin main # Push to main branch on remote "origin"
+
+Exp-3
+# 🔄 Pull the latest changes from a remote repository and merge them into
+the current branch
+git pull origin main
+# 🌐 View or manage the remote repositories connected to your local repo
+git remote -v # Show current remotes with their URLs
+# 🌍 "origin" is the default name for the remote repository
+# Used like: git push origin main, git pull origin main
+# (No command to run — just a default remote name)
+# 📥 Fetch latest updates from the remote repository (no auto merge)
+git fetch origin # Downloads changes but does not apply them
+# ⏪ Reset the current branch to a previous state
+git reset --hard HEAD~1 # Resets to the previous commit (destructive!)
+git reset <commit-id> # Reset to a specific commit
+# 🍴 Create a copy of someone else's repo under your GitHub account (done
+via GitHub UI)
+# (No terminal command — use "Fork" button on GitHub)
+# 🔀 Merge another branch into your current branch
+
+git merge feature-branch # Merges "feature-branch" into the current
+branch
+
+Exp-4
+✅ Goal: Manage Your React Form Code Using
+GitHub
+We'll cover:
+1. Create repo & clone
+2. Branching strategy
+3. Work on feature
+
+4. Open a Pull Request
+5. Merge the PR
+
+✅ 1. Create Repository & Clone It
+On GitHub:
+● Click "New Repository"
+
+● Name it something like event-registration-form
+
+● Initialize with a README ✅
+
+In terminal:
+git clone
+https://github.com/your-username/event-registratio
+n-form.git
+cd event-registration-form
+
+✅ 2. Branching Strategy
+Create a branch for a new feature (add-form):
+git checkout -b add-form
+
+✅ 3. Add Your React Form Code
+In your repo folder:
+● Paste your simple form code in App.js
+
+Initialize it as a React app (if not already):
+
+npx create-react-app
+Then:
+git add .
+
+git commit -m "Add event registration form UI"
+git push origin add-form
+
+✅ 4. Create a Pull Request (PR)
+1. Go to your GitHub repo.
+2. You'll see a "Compare & Pull Request" button
+— click it.
+
+3. Fill in:
+
+○ Title: Add event registration form
+
+○ Description: Added a simple React form
+with name, email, and phone fields.
+
+4. Click Create Pull Request
+
+✅ 5. Review & Merge the PR
+Once reviewed:
+● Click "Merge Pull Request"
+
+● Choose "Squash and merge" for a clean commit
+history
+
+● Click "Delete branch" to keep the repo clean
+
+Exp - 5
+📁 Step 1: Create Workflow File
+Create a file in your project:
+Path:
+.github/workflows/ci.yml
+
+Content of ci.yml:
+name: React Build CI
+on:
+push:
+branches: [main]
+pull_request:
+branches: [main]
+jobs:
+build:
+runs-on: ubuntu-latest
+steps:
+- name: ⬇️ Checkout repository
+uses: actions/checkout@v3
+- name: 🧰 Set up Node.js
+uses: actions/setup-node@v3
+with:
+node-version: '18'
+- name: 📦 Install dependencies
+run: npm install
+
+- name: 🏗 Build React app
+run: npm run build
+
+󰳕 Step 2: Commit and Push
+git add .
+git commit -m "Add CI GitHub Actions for React build (no tests)"
+git push origin main
+
+Exp-7
+# List running containers
+docker ps
+# Pull an image (e.g., nginx)
+docker pull nginx
+# Run a new container from the nginx image
+docker run -d -p 8080:80 nginx
+# List local images
+docker image ls
+# Build an image from Dockerfile
+docker build -t my-react-app .
+# Push your image to Docker Hub
+docker push yourusername/my-react-app
+# Stop and start containers
+docker stop <container_id>
+docker start <container_id>
+
+Exp-8
+# Remove a stopped container
+docker rm <container_id>
+# View logs from a container
+docker logs <container_id>
+# Run a command in a running container (e.g., open bash shell)
+docker exec -it <container_id> bash
+# List all Docker networks
+docker network ls
+# Start a multi-container application defined in docker-compose.yml
+docker-compose up
+# Tag an image with a version
+docker tag my-app:latest my-app:v1.0
+# List all Docker volumes
+docker volume ls
+# Show Docker version information
+docker version
+
+🚀 Using Docker Compose Example
+Here’s an example of a docker-compose.yml file for a simple React app with
+a backend:
+File: docker-compose.yml
+version: '3'
+services:
+frontend:
+image: my-react-app
+ports:
+- "3000:3000"
+networks:
+
+- my-network
+backend:
+image: my-backend
+ports:
+- "5000:5000"
+networks:
+- my-network
+networks:
+my-network:
+
+To start the application:
+docker-compose up
+
+To shut it down:
+docker-compose down
+
+Exp-9
+󰳕 Step 2: Create a Dockerfile for React App
+Next, we’ll create a Dockerfile to build and run the React app in a Docker
+container.
+Create Dockerfile: In the root of your React project (my-react-app),
+create a file named Dockerfile (no file extension) with the following
+content:
+Dockerfile
+# Step 1: Build the React app
+FROM node:16 AS build
+# Set the working directory inside the container
+WORKDIR /app
+
+# Copy package.json and package-lock.json and install dependencies
+COPY package*.json ./
+RUN npm install
+# Copy the rest of the app's source code
+COPY . .
+# Build the app for production
+RUN npm run build
+# Step 2: Serve the React app
+FROM nginx:alpine
+# Copy the build folder to the Nginx public directory
+COPY --from=build /app/build /usr/share/nginx/html
+# Expose the port that the Nginx server will run on
+EXPOSE 80
+# Start Nginx server to serve the React app
+CMD ["nginx", "-g", "daemon off;"]
+
+󰳕 Step 3: Build the Docker Image
+Build the Docker image using the following command:
+docker build -t my-react-app .
+
+This will create a Docker image named my-react-app.
+󰳕 Step 4: Run the Docker Container
+Once the Docker image is built, you can run it as a container.
+Run the container on port 8080:
+docker run -p 8080:80 my-react-app
+
+This maps the container’s port 80 (where Nginx is serving the app) to port
+8080 on your local machine.
+󰳕 Step 5: Access the React App
+Open a browser and navigate to:
+http://localhost:8080
